@@ -1,0 +1,13 @@
+[
+  { "id": "forest", "name": "Forest", "src": "/backgrounds/forest.jpg" },
+  { "id": "city", "name": "City", "src": "/backgrounds/city.jpg" },
+  { "id": "ocean", "name": "Ocean", "src": "/backgrounds/ocean.jpg" },
+  { "id": "space", "name": "Space", "src": "/backgrounds/space.jpg" },
+  { "id": "village", "name": "Village", "src": "/backgrounds/village.jpg" },
+  { "id": "tokio", "name": "Tokio", "src": "/backgrounds/tokio.jpg" },
+  {
+    "id": "mystical-night",
+    "name": "Mystical Night",
+    "src": "/backgrounds/mystical-night.jpg"
+  }
+]
