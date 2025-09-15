@@ -115,7 +115,7 @@ export default function AppClient() {
   const rebuild = useCallback(
     async (overrides?: {
       imageSrc?: string | null;
-      color?: string;
+      color?: string | null;
       fit?: "contain" | "cover" | "stretch" | "center" | "tile";
       transparent?: boolean;
     }) => {
