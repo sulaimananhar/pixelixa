@@ -21,15 +21,15 @@ export function Uploader({ onFiles, className }: Props) {
   useEffect(() => {
     if (!dropRef.current) return;
     const node = dropRef.current;
-    const prevent = (e: DragEvent) => {
+    const prevent = (e: Event) => {
       e.preventDefault();
       e.stopPropagation();
     };
-    const handleDragOver = (e: DragEvent) => {
+    const handleDragOver = (e: Event) => {
       prevent(e);
       setDragActive(true);
     };
-    const handleDragLeave = (e: DragEvent) => {
+    const handleDragLeave = (e: Event) => {
       prevent(e);
       setDragActive(false);
     };
@@ -39,15 +39,15 @@ export function Uploader({ onFiles, className }: Props) {
       const dt = e.dataTransfer;
       onFiles(dt?.files ?? null);
     };
-    node.addEventListener("dragover", handleDragOver as any);
-    node.addEventListener("dragleave", handleDragLeave as any);
-    node.addEventListener("drop", handleDrop as any);
-    node.addEventListener("dragenter", handleDragOver as any);
+    node.addEventListener("dragover", handleDragOver);
+    node.addEventListener("dragleave", handleDragLeave);
+    node.addEventListener("drop", handleDrop);
+    node.addEventListener("dragenter", handleDragOver);
     return () => {
-      node.removeEventListener("dragover", handleDragOver as any);
-      node.removeEventListener("dragleave", handleDragLeave as any);
-      node.removeEventListener("drop", handleDrop as any);
-      node.removeEventListener("dragenter", handleDragOver as any);
+      node.removeEventListener("dragover", handleDragOver);
+      node.removeEventListener("dragleave", handleDragLeave);
+      node.removeEventListener("drop", handleDrop);
+      node.removeEventListener("dragenter", handleDragOver);
     };
   }, [onFiles]);
 

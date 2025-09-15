@@ -394,16 +394,34 @@ export function UploadAndProcess({ className }: Props) {
       onFiles(dt?.files ?? null);
     };
 
-    node.addEventListener("dragover", handleDragOver as any);
-    node.addEventListener("dragleave", handleDragLeave as any);
-    node.addEventListener("drop", handleDrop as any);
-    node.addEventListener("dragenter", handleDragOver as any);
+    node.addEventListener(
+      "dragover",
+      handleDragOver as unknown as EventListener
+    );
+    node.addEventListener(
+      "dragleave",
+      handleDragLeave as unknown as EventListener
+    );
+    node.addEventListener("drop", handleDrop as unknown as EventListener);
+    node.addEventListener(
+      "dragenter",
+      handleDragOver as unknown as EventListener
+    );
 
     return () => {
-      node.removeEventListener("dragover", handleDragOver as any);
-      node.removeEventListener("dragleave", handleDragLeave as any);
-      node.removeEventListener("drop", handleDrop as any);
-      node.removeEventListener("dragenter", handleDragOver as any);
+      node.removeEventListener(
+        "dragover",
+        handleDragOver as unknown as EventListener
+      );
+      node.removeEventListener(
+        "dragleave",
+        handleDragLeave as unknown as EventListener
+      );
+      node.removeEventListener("drop", handleDrop as unknown as EventListener);
+      node.removeEventListener(
+        "dragenter",
+        handleDragOver as unknown as EventListener
+      );
     };
   }, [onFiles]);
 

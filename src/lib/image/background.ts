@@ -57,7 +57,8 @@ export async function composeOnBackground(
       } else if (fit === "tile") {
         const pattern = ctx.createPattern(img, "repeat");
         if (pattern) {
-          ctx.fillStyle = pattern as any;
+          // setPattern fill without using any
+          ctx.fillStyle = pattern;
           ctx.fillRect(0, 0, width, height);
           if (!transparent) ctx.fillStyle = color || "#ffffff";
         }
