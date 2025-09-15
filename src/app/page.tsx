@@ -1,4 +1,5 @@
 import AppClient from "@/components/AppClient";
+import FloatingReturnBadge from "@/components/FloatingReturnBadge";
 
 export default function Home() {
   return (
@@ -35,6 +36,7 @@ export default function Home() {
         </header>
         <AppClient />
       </main>
+      <FloatingReturnBadge />
     </div>
   );
 }
