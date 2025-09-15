@@ -13,14 +13,25 @@ export default function Home() {
               Upload selfie → Download pixel art
             </p>
           </div>
-          <a
-            href="https://github.com/berkinduz"
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm text-foreground/70 hover:underline"
-          >
-            Source
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/berkinduz/pixelixa"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-foreground/70 hover:underline"
+            >
+              Source
+            </a>
+            <span className="text-sm text-foreground/70">|</span>
+            <a
+              href="https://berkin.tech/en/about"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-foreground/70 hover:underline"
+            >
+              Berkin Duz
+            </a>
+          </div>
         </header>
         <AppClient />
       </main>
