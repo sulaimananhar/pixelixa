@@ -20,7 +20,7 @@ type PipelineResult = {
 };
 
 export default function AppClient() {
-  const [pixelSize, setPixelSize] = useState<number>(12);
+  const [pixelSize, setPixelSize] = useState<number>(8);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<PipelineResult | null>(null);
@@ -63,7 +63,7 @@ export default function AppClient() {
         });
 
         // Pixelate + quantize ONLY the subject
-        const subjectPixel = drawPixelated(img, pixelSize);
+        const subjectPixel = drawPixelated(img, pixelSize * 2);
         quantizeToPalette(subjectPixel, STARDEW_LIKE_PALETTE);
 
         // Compose subject over (optionally mild-pixelated) background
@@ -130,7 +130,7 @@ export default function AppClient() {
         });
 
         // Pixelate + quantize ONLY the subject
-        const subjectPixel = drawPixelated(img, pixelSize);
+        const subjectPixel = drawPixelated(img, pixelSize * 2);
         quantizeToPalette(subjectPixel, STARDEW_LIKE_PALETTE);
 
         // Compose over background with optional pixelation, with overrides if provided

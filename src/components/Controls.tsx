@@ -30,8 +30,8 @@ export function Controls({
         <input
           id="pixelSize"
           type="range"
-          min={6}
-          max={18}
+          min={4}
+          max={15}
           step={1}
           value={pixelSize}
           onChange={(e) => setPixelSize(Number(e.target.value))}
