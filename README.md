@@ -1,7 +1,7 @@
 <details open>
   <summary><strong>English</strong></summary>
 
-# Pixelixa — Background removal to pixel art (client‑side)
+# Pixelixa — Create pixel art from your photos (client‑side)
 
 ![Screenshot](./public/screenshot.png)
 
@@ -113,7 +113,7 @@ All processing happens locally in your browser. No images are uploaded to any se
 <details>
   <summary><strong>Türkçe</strong></summary>
 
-# Pixelixa — Arka plan temizleyip pixel art’a dönüştür (tamamen tarayıcıda)
+# Pixelixa — Fotoğraflarından pixel art oluştur (tamamen tarayıcıda)
 
 ![Ekran Görüntüsü](./public/screenshot.png)
 
