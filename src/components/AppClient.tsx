@@ -167,7 +167,7 @@ export default function AppClient() {
     <div className="w-full max-w-3xl mx-auto flex flex-col gap-6">
       <Uploader onFiles={onFiles} />
       {result ? (
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <Controls
             pixelSize={pixelSize}
             setPixelSize={(v) => {
@@ -179,10 +179,10 @@ export default function AppClient() {
             loading={loading}
             disabled={!result}
           />
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2">
             <button
               onClick={download}
-              className="px-3 py-2 rounded-md bg-foreground text-background text-sm"
+              className="px-3 py-2 rounded-md bg-foreground text-background text-sm font-medium"
             >
               Download
             </button>
@@ -217,9 +217,10 @@ export default function AppClient() {
                 setResult(null);
                 replaceInputRef.current?.click();
               }}
-              className="px-3 py-2 rounded-md border border-foreground/20 text-sm hover:bg-foreground/10"
+              className="px-2 sm:px-3 py-2 rounded-md border border-foreground/20 text-sm hover:bg-foreground/10"
             >
-              Upload new image
+              <span className="hidden sm:inline">Upload new image</span>
+              <span className="sm:hidden">New</span>
             </button>
           </div>
         </div>
@@ -230,142 +231,159 @@ export default function AppClient() {
       )}
 
       {result && (
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="text-sm text-foreground/70">Background</span>
-          <div className="inline-flex items-center gap-1 border border-foreground/20 rounded-md p-0.5">
-            <button
-              onClick={async () => {
-                setBgMode("none");
-                setSelectedBg(null);
-                await rebuild({
-                  imageSrc: null,
-                  color: null,
-                  transparent: true,
-                });
-              }}
-              className={
-                "px-2 py-1 text-sm rounded " +
-                (bgMode === "none"
-                  ? "bg-foreground text-background"
-                  : "hover:bg-foreground/10")
-              }
-              aria-pressed={bgMode === "none"}
-              title="Transparent background"
-            >
-              None
-            </button>
-            <button
-              onClick={async () => {
-                setBgMode("images");
-                const target = selectedBg?.src ?? bgItems[0]?.src ?? null;
-                if (!selectedBg && bgItems[0]) setSelectedBg(bgItems[0]);
-                await rebuild({ imageSrc: target, transparent: false });
-              }}
-              className={
-                "px-2 py-1 text-sm rounded " +
-                (bgMode === "images"
-                  ? "bg-foreground text-background"
-                  : "hover:bg-foreground/10")
-              }
-              aria-pressed={bgMode === "images"}
-              title="Use a background image"
-            >
-              Images
-            </button>
-            <button
-              onClick={async () => {
-                setBgMode("color");
-                setSelectedBg(null);
-                await rebuild({
-                  imageSrc: null,
-                  color: bgColor,
-                  transparent: false,
-                });
-              }}
-              className={
-                "px-2 py-1 text-sm rounded " +
-                (bgMode === "color"
-                  ? "bg-foreground text-background"
-                  : "hover:bg-foreground/10")
-              }
-              aria-pressed={bgMode === "color"}
-              title="Use a solid color background"
-            >
-              Color
-            </button>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <span className="text-sm text-foreground/70 font-medium">
+              Background
+            </span>
+            <div className="inline-flex items-center gap-1 border border-foreground/20 rounded-md p-0.5">
+              <button
+                onClick={async () => {
+                  setBgMode("none");
+                  setSelectedBg(null);
+                  await rebuild({
+                    imageSrc: null,
+                    color: null,
+                    transparent: true,
+                  });
+                }}
+                className={
+                  "px-2 py-1 text-xs sm:text-sm rounded " +
+                  (bgMode === "none"
+                    ? "bg-foreground text-background"
+                    : "hover:bg-foreground/10")
+                }
+                aria-pressed={bgMode === "none"}
+                title="Transparent background"
+              >
+                None
+              </button>
+              <button
+                onClick={async () => {
+                  setBgMode("images");
+                  const target = selectedBg?.src ?? bgItems[0]?.src ?? null;
+                  if (!selectedBg && bgItems[0]) setSelectedBg(bgItems[0]);
+                  await rebuild({ imageSrc: target, transparent: false });
+                }}
+                className={
+                  "px-2 py-1 text-xs sm:text-sm rounded " +
+                  (bgMode === "images"
+                    ? "bg-foreground text-background"
+                    : "hover:bg-foreground/10")
+                }
+                aria-pressed={bgMode === "images"}
+                title="Use a background image"
+              >
+                Images
+              </button>
+              <button
+                onClick={async () => {
+                  setBgMode("color");
+                  setSelectedBg(null);
+                  await rebuild({
+                    imageSrc: null,
+                    color: bgColor,
+                    transparent: false,
+                  });
+                }}
+                className={
+                  "px-2 py-1 text-xs sm:text-sm rounded " +
+                  (bgMode === "color"
+                    ? "bg-foreground text-background"
+                    : "hover:bg-foreground/10")
+                }
+                aria-pressed={bgMode === "color"}
+                title="Use a solid color background"
+              >
+                Color
+              </button>
+            </div>
+
+            {bgMode === "color" && (
+              <input
+                type="color"
+                value={bgColor}
+                onChange={async (e) => {
+                  setSelectedBg(null);
+                  setBgColor(e.target.value);
+                  await rebuild({
+                    imageSrc: null,
+                    color: e.target.value,
+                    transparent: false,
+                  });
+                }}
+                aria-label="Background color"
+                className="w-8 h-8 sm:w-9 sm:h-9 p-0 border border-foreground/20 rounded"
+                title="Pick a background color"
+              />
+            )}
           </div>
 
-          {bgMode === "images" ? (
-            <BackgroundGallery
-              items={bgItems}
-              selectedId={selectedBg?.id ?? null}
-              onSelect={async (item) => {
-                // append custom item to gallery if missing
-                if (!bgItems.some((i) => i.id === item.id)) {
-                  setBgItems((prev) => [...prev, item]);
-                }
-                setSelectedBg(item);
-                await rebuild({ imageSrc: item.src, transparent: false });
-              }}
-            />
-          ) : bgMode === "color" ? (
-            <input
-              type="color"
-              value={bgColor}
-              onChange={async (e) => {
-                setSelectedBg(null);
-                setBgColor(e.target.value);
-                await rebuild({
-                  imageSrc: null,
-                  color: e.target.value,
-                  transparent: false,
-                });
-              }}
-              aria-label="Background color"
-              className="w-9 h-9 p-0 border border-foreground/20 rounded"
-              title="Pick a background color"
-            />
-          ) : null}
-
           {bgMode === "images" && (
-            <div className="flex items-center gap-3 whitespace-nowrap">
-              <label className="text-sm text-foreground/70">bg pixel</label>
-              <input
-                type="range"
-                min={1}
-                max={24}
-                step={1}
-                value={bgPixelSize}
-                onChange={async (e) => {
-                  const v = Number(e.target.value);
-                  setBgPixelSize(v);
-                  await rebuild();
+            <>
+              <BackgroundGallery
+                items={bgItems}
+                selectedId={selectedBg?.id ?? null}
+                onSelect={async (item) => {
+                  // append custom item to gallery if missing
+                  if (!bgItems.some((i) => i.id === item.id)) {
+                    setBgItems((prev) => [...prev, item]);
+                  }
+                  setSelectedBg(item);
+                  await rebuild({ imageSrc: item.src, transparent: false });
                 }}
               />
-              <span className="text-sm text-foreground/70">fit</span>
-              <div className="inline-flex items-center gap-1 border border-foreground/20 rounded-md p-0.5">
-                {(
-                  ["cover", "stretch", "center", "tile", "contain"] as const
-                ).map((k) => (
-                  <button
-                    key={k}
-                    onClick={async () => {
-                      setFit(k);
-                      await rebuild({ fit: k });
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <label className="text-sm text-foreground/70 whitespace-nowrap">
+                    bg pixel
+                  </label>
+                  <input
+                    type="range"
+                    min={1}
+                    max={24}
+                    step={1}
+                    value={bgPixelSize}
+                    onChange={async (e) => {
+                      const v = Number(e.target.value);
+                      setBgPixelSize(v);
+                      await rebuild();
                     }}
-                    className={
-                      "px-2 py-1 text-sm rounded capitalize " +
-                      (fit === k
-                        ? "bg-foreground text-background"
-                        : "hover:bg-foreground/10")
-                    }
-                    aria-pressed={fit === k}
-                  >
-                    {k}
-                  </button>
-                ))}
+                    className="w-20 sm:w-24"
+                  />
+                  <span className="text-sm text-foreground/70 w-6 text-center">
+                    {bgPixelSize}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="text-sm text-foreground/70 whitespace-nowrap">
+                    fit
+                  </span>
+                  <div className="inline-flex items-center gap-1 border border-foreground/20 rounded-md p-0.5">
+                    {(
+                      ["cover", "stretch", "center", "tile", "contain"] as const
+                    ).map((k) => (
+                      <button
+                        key={k}
+                        onClick={async () => {
+                          setFit(k);
+                          await rebuild({ fit: k });
+                        }}
+                        className={
+                          "px-1.5 sm:px-2 py-1 text-xs sm:text-sm rounded capitalize " +
+                          (fit === k
+                            ? "bg-foreground text-background"
+                            : "hover:bg-foreground/10")
+                        }
+                        aria-pressed={fit === k}
+                      >
+                        {k}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       )}

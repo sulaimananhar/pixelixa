@@ -18,9 +18,9 @@ export function Preview({ url, onDownload }: Props) {
           src={url}
           alt="Pixel art preview"
           className="rounded-lg border border-foreground/10"
-          quality={100} // Görüntü kalitesini belirtebilirsiniz (opsiyonel).
-          layout="fill" // Görüntü yerleşimi için.
-          objectFit="contain" // Görüntünün nasıl sığacağını tanımlar.
+          quality={100}
+          fill
+          style={{ objectFit: "contain" }}
         />
       </div>
     </figure>
